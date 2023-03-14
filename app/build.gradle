@@ -1,0 +1,53 @@
+apply plugin: "com.android.application"
+
+android {
+    compileSdk appTargetSdk
+    defaultConfig {
+        applicationId "com.kunminx.puremusic"
+        minSdk appMinSdk
+        targetSdk appTargetSdk
+        versionCode appVersionCode
+        versionName appVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            applicationIdSuffix ".debug"
+            manifestPlaceholders = [
+                APP_NAME: "@string/app_name_debug",
+            ]
+        }
+        release {
+            manifestPlaceholders = [
+                APP_NAME: "@string/app_name",
+            ]
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    implementation project(":architecture")
+
+    testImplementation "junit:junit:4.13.2"
+    androidTestImplementation "androidx.test.ext:junit:1.1.5"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.1"
+
+    implementation "org.slf4j:slf4j-android:1.7.36"
+    implementation "com.sothree.slidinguppanel:library:3.4.0"
+    implementation 'com.github.KunMinX:Jetpack-MusicPlayer:4.1.0'
+    implementation 'com.github.KunMinX.KeyValueX:keyvalue:3.7.0-beta'
+    annotationProcessor 'com.github.KunMinX.KeyValueX:keyvalue-compiler:3.7.0-beta'
+}
