@@ -17,7 +17,7 @@
 任何组织或个人，未经与作者本人沟通，不得将本项目代码设计和本人对 Jetpack MVVM 独家理解用于 "**打包贩卖、引流、出书 和 卖课**" 等商业用途。
 
 &nbsp;
-
+//new line added
 # 架构图一览
 
 ![](https://images.xiaozhuanlan.com/photo/2022/3254319c497bb39d638667cb589b48c7.png)
